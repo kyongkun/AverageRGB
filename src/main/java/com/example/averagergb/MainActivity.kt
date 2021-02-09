@@ -60,8 +60,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        binding.imageView2.x = ((253.0-15.0)/720.0*width.toDouble()).toFloat()
-        binding.imageView2.y = ((650.0-15.0)/1280.0*height.toDouble()).toFloat()
         Log.d(TAG, "x: "+ binding.imageView2.x.toString() + "y: " + binding.imageView2.y.toString())
         if (allPermissionsGranted()) {
             startCamera()
@@ -72,7 +70,10 @@ class MainActivity : AppCompatActivity() {
         cameraExecutor = Executors.newSingleThreadExecutor()
     }
 
+
+
     override fun onTouchEvent(event: MotionEvent?): Boolean {
+        Log.d(TAG, "x: "+ binding.imageView2.x.toString() + "y: " + binding.imageView2.y.toString())
         binding.imageView2.x = ((253.0-15.0)/720.0*width.toDouble()).toFloat()
         binding.imageView2.y = ((650.0-15.0)/1280.0*height.toDouble()).toFloat()
         binding.RGBvalue.text = rgbvalue
